@@ -34,9 +34,10 @@ then
 	rm -rf "$dirHost/$name"
 	rm -rf "$logDir/$name";
 	rm "$confDir/$name.conf"
+	sed -i "/$name/d" /etc/hosts
 	systemctl reload apache2
 	
-	echo "Remowing success"
+	echo "Removing successfully"
 else
   echo "File not exist"
 fi

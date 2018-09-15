@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Virtual</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+        body{
+            background-color: #f1f3f3;
+        }
+        .block{
+            width: 100%;
+            font-family: "Raleway",sans-serif;
+            text-align: center;
+            margin-top: 200px;
+        }
+        .hello{
+            font-size: 50px;
+            font-weight: 100;
+            color: #454646;
+            margin-bottom: 40px;
+        }
+        .link{
+            font-size: 25px;
+            color: #7688c3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .link:hover{
+            color: #8398d9;
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div class="hello">The virtual host is working!</div>
+    <a href="https://github.com/PunGy/VirtualHostService" class="link">GitHub</a>
+</div>
+</body>
+</html>

@@ -6,11 +6,26 @@
 dirHost="/home/pungy/Hosts"; #Path to host directory
 name=$1; #Name of host, it's passed by parameter
 confFile="/etc/apache2/sites-available/$name.conf"; #Path to config file
-toConf=$(cat hostConfig.txt);
 ip="127.0.0.1" #Ip addres of server
 logDir="$dirHost/log" #path to log directory
 
-templateHello="Site is working" #Text in index.html
+#CONFIG OF VIRTUAL HOST
+toConf="
+<VirtualHost *:80>\n
+    ServerName $name\n
+    DocumentRoot $dirHost/$name/\n
+ErrorLog $dirHost/log/$name/error.log\n
+CustomLog $dirHost/log/$name/access.log combined\n
+<Directory $dirHost/$name>\n
+        AllowOverride All\n
+        Options Indexes FollowSymlinks\n
+        Require all granted\n
+    </Directory>\n
+</VirtualHost>
+"
+
+
+templateHello=$(cat helloPage.txt) #Text in index.html
 user=$(who | awk '{print $1}') #Name of user
 
 #Checking on root
@@ -36,8 +51,8 @@ mkdir "$dirHost/log/$name/"
 touch "$dirHost/log/$name/error.log"
 touch "$dirHost/log/$name/access.log"
 
-touch $dirHost/$name/index.php
-echo $templateHello >> $dirHost/$name/index.php
+touch $dirHost/$name/index.html
+echo $templateHello >> $dirHost/$name/index.html
 
 sed -i -e "1 s/^/127.0.0.1	$name\n/;" /etc/hosts
 
