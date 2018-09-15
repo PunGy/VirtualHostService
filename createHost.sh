@@ -25,7 +25,7 @@ CustomLog $dirHost/log/$name/access.log combined\n
 "
 
 
-templateHello=$(cat helloPage.txt) #Text in index.html
+templateHello=$(cat helloPage.html) #Text in index.html
 user=$(who | awk '{print $1}') #Name of user
 
 #Checking on root
