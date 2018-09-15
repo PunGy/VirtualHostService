@@ -1,6 +1,6 @@
-#Virtual Host Service
+<h1>Virtual Host Service
 
-##How to configure file hostConfig
+<h2>How to configure file hostConfig
 
 Variables:
 * $name -> name of host
