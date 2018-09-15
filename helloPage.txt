@@ -8,7 +8,7 @@
     <title>Virtual</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
-        body{
+    body{
             background-color: #f1f3f3;
         }
         .block{
@@ -21,16 +21,27 @@
             font-size: 50px;
             font-weight: 100;
             color: #454646;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         .link{
             font-size: 25px;
             color: #7688c3;
             text-decoration: none;
+            border: 2px solid #7688c3;
+            padding: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
             font-weight: 600;
+            -webkit-transition: all .2s;
+            -moz-transition: all .2s;
+            -ms-transition: all .2s;
+            -o-transition: all .2s;
+            transition: all .2s;
         }
         .link:hover{
             color: #8398d9;
+            background-color: #ebf2f0;
         }
     </style>
 </head>
