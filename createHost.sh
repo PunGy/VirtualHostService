@@ -16,8 +16,15 @@ user=$(who | awk '{print $1}') #Name of user
 #Checking on root
 if [ "root" != $USER ]
 then
-  echo "You should execute script with a root privilege! (sudo ./createHost)"
+  echo "ERROR: You should execute script with a root privilege! (sudo ./createHost example)"
   exit
+fi
+
+#if argument lose - break with message
+if [ -z $name ]
+then
+	echo "ERROR: You should add argument (sudo ./createHost example)"
+	exit
 fi
 
 
