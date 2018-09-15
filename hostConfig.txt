@@ -1,0 +1,12 @@
+<VirtualHost *:80>\n
+    ServerName $name\n
+    DocumentRoot $dirHost/$name/\n
+ErrorLog $dirHost/log/$name/error.log\n
+CustomLog $dirHost/log/$name/access.log combined\n
+<Directory $dirHost/$name>\n
+        AllowOverride All\n
+        Options Indexes FollowSymlinks\n
+        Require all granted\n
+    </Directory>\n
+</VirtualHost>
+
