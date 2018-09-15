@@ -20,6 +20,14 @@ then
   exit
 fi
 
+#if argument lose - break with message
+if [ -z $name ]
+then
+        echo "ERROR: You should add argument (sudo ./createHost example)"
+        exit
+fi
+
+
 if [ -e "$confDir/$name.conf" ]
 then
 	a2dissite $name.conf
