@@ -5,7 +5,6 @@
 dirHost="/home/pungy/Hosts"; #Path to host directory
 name=$1; #Name of host, it's passed by parameter
 confFile="/etc/apache2/sites-available/$name.conf"; #Path to config file
-toConf=$(cat hostConfig.txt);
 ip="127.0.0.1" #Ip addres of server
 logDir="$dirHost/log" #path to log directory
 confDir="/etc/apache2/sites-available"
@@ -30,12 +29,12 @@ fi
 
 if [ -e "$confDir/$name.conf" ]
 then
-	a2dissite $name.conf
+	a2dissite $name.conf > /dev/null
 	rm -rf "$dirHost/$name"
 	rm -rf "$logDir/$name";
 	rm "$confDir/$name.conf"
 	sed -i "/$name/d" /etc/hosts
-	systemctl reload apache2
+	systemctl reload apache2 >> /dev/null
 	
 	echo "Removing successfully"
 else

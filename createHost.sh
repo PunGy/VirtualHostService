@@ -2,7 +2,6 @@
 
 
 # Config variables :
-
 dirHost="/home/pungy/Hosts"; #Path to host directory
 name=$1; #Name of host, it's passed by parameter
 confFile="/etc/apache2/sites-available/$name.conf"; #Path to config file
@@ -25,7 +24,8 @@ CustomLog $dirHost/log/$name/access.log combined\n
 "
 
 
-templateHello=$(cat helloPage.html) #Text in index.html
+templateHello=$(cat helloPage.html) > /dev/null #Text in index.html
+
 user=$(who | awk '{print $1}') #Name of user
 
 #Checking on root
@@ -58,9 +58,7 @@ sed -i -e "1 s/^/127.0.0.1	$name\n/;" /etc/hosts
 
 chown -R $user:$user "$dirHost/$name/"
 
-a2ensite $name.conf
-systemctl reload apache2
+a2ensite $name.conf > /dev/null
+systemctl reload apache2 > /dev/null
 
 echo "Host is enabled!"
-
-
