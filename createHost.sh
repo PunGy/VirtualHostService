@@ -3,7 +3,7 @@
 
 # Config variables :
 name=$1; #Name of host, it's passed by parameter
-dirHost="/home/$name/Hosts"; #Path to host directory
+dirHost="/home/pungy/Hosts"; #Path to host directory, you should change title of user folder
 confFile="/etc/apache2/sites-available/$name.conf"; #Path to config file
 ip="127.0.0.1" #Ip addres of server
 logDir="$dirHost/log" #path to log directory
